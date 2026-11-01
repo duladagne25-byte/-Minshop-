@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MinShop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="gate" class="gate">
+  <form id="gateForm" class="gatebox">
+    <h1>MinShop</h1>
+    <p>Log in to see our materials and place orders.</p>
+    <div class="tabs">
+      <button type="button" id="tab-login" class="on">Log in</button>
+      <button type="button" id="tab-register">Create account</button>
+      <button type="button" id="tab-admin">Admin</button>
+    </div>
+    <label hidden>Your name <input id="gName" autocomplete="name"></label>
+    <label>Phone number <input id="gPhone" type="tel" required autocomplete="tel"></label>
+    <label>Password <input id="gPass" type="password" required autocomplete="current-password"></label>
+    <p id="gErr" class="err" hidden></p>
+    <button class="btn wide">Continue</button>
+    <p class="gatefoot">Website developed by Dola Dagne</p>
+  </form>
+</div>
+
+<div id="site" hidden>
+  <div id="adminBar" class="adminbar" hidden><span>Admin mode: you can edit everything on this site</span></div>
+  <header class="top">
+    <h1>MinShop</h1>
+    <nav id="nav">
+      <button data-p="home" class="on">Home</button>
+      <button data-p="about">About</button>
+      <button data-p="gallery">Gallery</button>
+      <button data-p="shop">Shop</button>
+      <button data-p="dashboard" id="dashTab" hidden>Deliveries</button>
+    </nav>
+    <div><span id="hello"></span> <button class="mini light" id="logout">Log out</button></div>
+  </header>
+  <main>
+    <section id="home" class="page"></section>
+    <section id="about" class="page" hidden></section>
+    <section id="gallery" class="page" hidden></section>
+    <section id="shop" class="page" hidden></section>
+    <section id="dashboard" class="page" hidden></section>
+  </main>
+  <footer class="foot">Website developed by Dola Dagne</footer>
+</div>
+
+<dialog id="textDlg"><form id="textForm" method="dialog">
+  <h2>Edit text</h2>
+  <label>Title <input id="tTitle" required></label>
+  <label>Text <textarea id="tText" rows="6" required></textarea></label>
+  <div class="actions"><button type="button" class="btn ghost" data-close>Cancel</button><button class="btn">Save changes</button></div>
+</form></dialog>
+
+<dialog id="prodDlg"><form id="prodForm" method="dialog">
+  <h2>Add material</h2>
+  <label>Name <input id="pName" required></label>
+  <label>Price (ETB) <input id="pPrice" type="number" min="0" required></label>
+  <label>Description <input id="pDesc"></label>
+  <label>Photo (optional) <input id="pImg" type="file" accept="image/*"></label>
+  <div class="actions"><button type="button" class="btn ghost" data-close>Cancel</button><button class="btn">Add material</button></div>
+</form></dialog>
+
+<dialog id="orderDlg"><form id="orderForm" method="dialog">
+  <h2 id="orderTitle">Place order</h2>
+  <label>Quantity <input id="oQty" type="number" min="1" value="1" required></label>
+  <label>Delivery address <input id="oAddr" required></label>
+  <div class="actions"><button type="button" class="btn ghost" data-close>Cancel</button><button class="btn">Send order</button></div>
+</form></dialog>
+
+<dialog id="buyDlg"><form id="buyForm" method="dialog">
+  <h2>Record stock purchase</h2>
+  <label>Material <select id="bItem"></select></label>
+  <label>Quantity bought <input id="bQty" type="number" min="1" value="1" required></label>
+  <div class="actions"><button type="button" class="btn ghost" data-close>Cancel</button><button class="btn">Save purchase</button></div>
+</form></dialog>
+
+<dialog id="contactDlg"><form id="contactForm" method="dialog">
+  <h2>Edit contact details</h2>
+  <label>Phone <input id="cPhone"></label>
+  <label>Email <input id="cEmail" type="email"></label>
+  <label>Address <input id="cAddr"></label>
+  <label>Opening hours <input id="cHours"></label>
+  <div class="actions"><button type="button" class="btn ghost" data-close>Cancel</button><button class="btn">Save contact</button></div>
+</form></dialog>
+
+<dialog id="videoDlg"><form id="videoForm" method="dialog">
+  <h2>Home video</h2>
+  <label>YouTube link or video file link (.mp4) <input id="vUrl" placeholder="https://"></label>
+  <div class="actions"><button type="button" class="btn ghost" data-close>Cancel</button><button class="btn">Save video</button></div>
+</form></dialog>
+
+<div id="toast" class="toast" hidden></div>
+<script src="script.js"></script>
+</body>
+</html>
